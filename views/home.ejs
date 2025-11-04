@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home | Products & Categories</title>
+
+    <style>
+        body{
+            margin:0;
+            font-family: "Poppins", sans-serif;
+            background: #f3f4f6;
+        }
+
+        header{
+            background: #111827;
+            padding: 18px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: white;
+        }
+
+        header h2{
+            margin: 0;
+        }
+
+        header a{
+            color: white;
+            text-decoration: none;
+            margin-left: 18px;
+            font-size: 14px;
+            border: 1px solid white;
+            padding: 6px 14px;
+            border-radius: 6px;
+            transition: 0.3s;
+        }
+
+        header a:hover{
+            background: white;
+            color: #111827;
+        }
+
+        .container{
+            width: 90%;
+            max-width: 900px;
+            margin: 50px auto;
+            background: white;
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+
+        table{
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th{
+            text-align: left;
+            background: #111827;
+            color: white;
+            padding: 12px 10px;
+        }
+
+        td{
+            padding: 12px 10px;
+            border-bottom: 1px solid #dddddd;
+        }
+
+        .category-row{
+            background: #e5e7eb;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+    </style>
+
+</head>
+
+<body>
+
+<header>
+    <h2>Dashboard</h2>
+    <div>
+        <a href="/product">Products</a>
+        <a href="/category">Categories</a>
+    </div>
+</header>
+
+<div class="container">
+    <h3>Products & Categories</h3>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Product</th>
+                <th>Price (₹)</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <% products.forEach(function(product){ %>
+                <tr>
+                    <td><%= product.product_name %></td>
+                    <td>₹<%= product.product_price %></td>
+                </tr>
+            <% }); %>
+
+            <% categories.forEach(function(category){ %>
+                <tr class="category-row">
+                    <td colspan="2"><%= category.category_name %></td>
+                </tr>
+            <% }); %>
+        </tbody>
+
+    </table>
+</div>
+
+</body>
+</html>

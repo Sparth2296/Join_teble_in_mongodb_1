@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Categories</title>
+
+    <style>
+        body{
+            margin:0;
+            padding:0;
+            background:#f3f4f6;
+            font-family: "Poppins", sans-serif;
+        }
+
+        header{
+            background:#111827;
+            color:#fff;
+            padding:18px 30px;
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+        }
+
+        header h2{
+            margin:0;
+        }
+
+        header a{
+            text-decoration:none;
+            color:white;
+            margin-left:18px;
+            border:1px solid white;
+            padding:6px 14px;
+            border-radius:6px;
+            font-size:14px;
+            transition:0.3s;
+        }
+
+        header a:hover{
+            background:white;
+            color:#111827;
+        }
+
+        .container{
+            max-width:800px;
+            width:90%;
+            margin:40px auto;
+            background:white;
+            border-radius:12px;
+            padding:25px;
+            box-shadow:0 4px 12px rgba(0,0,0,0.08);
+        }
+
+        .add-btn{
+            display:inline-block;
+            background:#111827;
+            color:white;
+            padding:10px 16px;
+            border-radius:6px;
+            text-decoration:none;
+            margin-bottom:20px;
+            transition:0.3s;
+        }
+
+        .add-btn:hover{
+            background:#4b5563;
+        }
+
+        ul{
+            list-style:none;
+            padding:0;
+            margin:0;
+        }
+
+        li{
+            background:#e5e7eb;
+            margin:8px 0;
+            padding:12px 14px;
+            border-radius:6px;
+            font-weight:500;
+        }
+    </style>
+
+</head>
+<body>
+
+<header>
+    <h2>Categories</h2>
+    <div>
+        <a href="/">Home</a>
+        <a href="/product">Products</a>
+        <a href="/category">Categories</a>
+    </div>
+</header>
+
+<div class="container">
+    <a href="/addcat" class="add-btn">+ Add Category</a>
+
+    <ul>
+        <% categories.forEach(function(category){ %>
+            <li><%= category.category_name %></li>
+        <% }); %>
+    </ul>
+</div>
+
+</body>
+</html>

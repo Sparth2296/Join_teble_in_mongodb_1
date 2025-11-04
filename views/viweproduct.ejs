@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products</title>
+
+    <style>
+        body{
+            margin:0;
+            padding:0;
+            background:#f3f4f6;
+            font-family: "Poppins", sans-serif;
+        }
+
+        header{
+            background:#111827;
+            padding:18px 30px;
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            color:white;
+        }
+
+        header h2{
+            margin:0;
+        }
+
+        header a{
+            color:white;
+            text-decoration:none;
+            margin-left:18px;
+            border:1px solid white;
+            padding:6px 14px;
+            border-radius:6px;
+            font-size:14px;
+            transition:0.3s;
+        }
+
+        header a:hover{
+            background:white;
+            color:#111827;
+        }
+
+        .container{
+            max-width:900px;
+            width:90%;
+            margin:45px auto;
+        }
+
+        .add-btn{
+            display:inline-block;
+            background:#111827;
+            color:white;
+            text-decoration:none;
+            padding:10px 16px;
+            border-radius:6px;
+            margin-bottom:20px;
+            transition:0.3s;
+        }
+
+        .add-btn:hover{
+            background:#374151;
+        }
+
+        ul{
+            padding:0;
+            margin:0;
+            display:grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap:18px;
+            list-style:none;
+        }
+
+        li{
+            background:white;
+            padding:18px;
+            border-radius:10px;
+            box-shadow:0 4px 12px rgba(0,0,0,0.08);
+            font-weight:500;
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+        }
+
+        .price{
+            background:#111827;
+            color:white;
+            padding:4px 10px;
+            border-radius:6px;
+            font-size:13px;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <header>
+        <h2>Products</h2>
+        <div>
+            <a href="/">Home</a>
+            <a href="/product">Products</a>
+            <a href="/category">Categories</a>
+        </div>
+    </header>
+
+    <div class="container">
+
+        <a href="/addpro" class="add-btn">+ Add Product</a>
+
+        <ul>
+            <% products.forEach(function(product){ %>
+                <li>
+                    <span><%= product.product_name %></span>
+                    <span class="price">₹<%= product.product_price %></span>
+                </li>
+            <% }); %>
+        </ul>
+
+    </div>
+
+</body>
+
+</html>
