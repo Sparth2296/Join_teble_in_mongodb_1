@@ -89,11 +89,18 @@
 
             <input type="number" name="product_price" placeholder="Product Price" required>
 
-            <select name="category_id" required>
+            <select name="category_name">
+                <option disabled selected>Select Category</option>
+                <% categories.forEach(function(category){ %>
+                    <option value="<%= category._id %>"><%= category.category_name %></option>
+                <% }); %>
+            </select>
+
+            <!-- <select name="category_id" required>
                 <option disabled selected>Select Category</option>
                 <% categories.forEach(function(category){ %>
                     <option value="<%= category.id %>"><%= category.category_name %></option>
-                <% }); %>
+                <% }); %> -->
             </select>
 
             <button type="submit">Add Product</button>

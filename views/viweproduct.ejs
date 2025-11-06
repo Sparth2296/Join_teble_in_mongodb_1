@@ -115,8 +115,11 @@
                 <li>
                     <span><%= product.product_name %></span>
                     <span class="price">₹<%= product.product_price %></span>
+                    <span><%= product.category_name ? product.category_name.category_name : "No Category" %></span>
                 </li>
             <% }); %>
+
+
         </ul>
 
     </div>

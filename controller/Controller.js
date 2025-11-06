@@ -2,12 +2,12 @@ const Category = require("../model/categoryModel");
 const Product = require("../model/productModel");
 
 module.exports.home = async (req, res) => {
-  const products = await Product.find();
-  const categories = await Category.find();
-  return res.render("home", { products, categories });
+  const products = await Product.find().populate("category_name");
+  // const categories = await Category.find();
+  return res.render("home", { products });
 };
 module.exports.productViwe = async (req, res) => {
-  const products = await Product.find();
+  const products = await Product.find().populate("category_name");
   return res.render("viweproduct", { products });
 };
 
@@ -17,10 +17,14 @@ module.exports.categoryViwe = async (req, res) => {
   return res.render("viwecategoet", { categories });
 };
 module.exports.addCategory = (req, res) => {
+
+  
   return res.render("addCategory");
 };
-module.exports.addProduct = (req, res) => {
-  return res.render("addProduct");
+module.exports.addProduct = async (req, res) => {
+
+  const categories = await Category.find();
+  return res.render("addProduct", { categories });
 };
 module.exports.addCategoryForm = async (req, res) => {
   console.log(req.body);

@@ -96,6 +96,7 @@
             <tr>
                 <th>Product</th>
                 <th>Price (₹)</th>
+                <th>Category</th>
             </tr>
         </thead>
 
@@ -104,14 +105,11 @@
                 <tr>
                     <td><%= product.product_name %></td>
                     <td>₹<%= product.product_price %></td>
+                    <td><%= product.category_name ? product.category_name.category_name : "No Category" %></td>
                 </tr>
             <% }); %>
 
-            <% categories.forEach(function(category){ %>
-                <tr class="category-row">
-                    <td colspan="2"><%= category.category_name %></td>
-                </tr>
-            <% }); %>
+            
         </tbody>
 
     </table>
